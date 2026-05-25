@@ -1,71 +1,55 @@
-# antigravity-cli-live README
+<div align="center">
+  <img src="media/logo.png" alt="Antigravity CLI Live Logo" width="128" height="128">
 
-This is the README for your extension "antigravity-cli-live". After writing up a brief description, we recommend including the following sections.
+  # Antigravity CLI Live
+
+  *Quickly launch and interact with the Antigravity CLI directly within your VS Code environment.*
+
+  ![VS Code](https://img.shields.io/badge/VS%20Code-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white)
+  ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+</div>
+
+## Overview
+
+**Antigravity CLI Live** is a lightweight, flat-designed VS Code extension that streamlines your workflow by allowing you to launch your project's Antigravity CLI (`agy .`) instantly. It integrates deeply with your editor, allowing you to open the terminal in a traditional bottom panel or as a dedicated, full-size Editor Tab for maximum screen real estate.
+
+![Extension Screenshot](media/screenshot.png)
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- 🚀 **One-Click CLI Launch**: Start the Antigravity CLI environment instantly for the currently open project.
+- 🗂️ **Editor Tab Integration**: Open the CLI terminal directly as a main Editor Tab (similar to modern AI coding assistants) for an immersive, distraction-free experience.
+- ⏬ **Bottom Panel Support**: Alternatively, launch the CLI in the standard VS Code integrated terminal panel.
+- ⚙️ **Configurable Command**: Customize the exact CLI command used to start the environment through extension settings.
+- 🎨 **Clean & Native UI**: A flat, non-intrusive sidebar design built to look native in VS Code.
 
-For example if there is an image subfolder under your extension project workspace:
+## Usage
 
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
-
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+1. Open a workspace or project folder in VS Code.
+2. Click the **Antigravity CLI** icon in the Activity Bar on the left.
+3. Choose your preferred launch method:
+   - **Open Terminal in Editor Tab**: Best for focused CLI interaction.
+   - **Open Terminal in Bottom Panel**: Best for side-by-side coding and CLI usage.
+4. The terminal will automatically launch using your project's root directory.
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
 This extension contributes the following settings:
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+* `antigravity-cli-live.cliCommand`: The command or script path used to run the Antigravity CLI. Defaults to `agy .`.
 
-## Known Issues
+## Commands
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+You can also trigger these actions directly from the **Command Palette** (`Ctrl+Shift+P` / `Cmd+Shift+P`):
 
-## Release Notes
+- `Antigravity CLI: Open Terminal in Editor Tab`
+- `Antigravity CLI: Open Terminal in Bottom Panel`
 
-Users appreciate release notes as you update your extension.
+## Requirements
 
-### 1.0.0
+- VS Code version `1.120.0` or higher.
+- A workspace/folder must be opened to correctly set the terminal's working directory.
 
-Initial release of ...
+## License
 
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+[MIT](LICENSE)

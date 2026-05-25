@@ -3,6 +3,12 @@
   "displayName": "Antigravity CLI Live",
   "description": "Fast lunch Antigravity CLI in VSCode.",
   "version": "0.0.1",
+  "publisher": "BLueStarBLS",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BLueStarBLS/antigravity-cli-live.git"
+  },
+  "icon": "media/logo.png",
   "engines": {
     "vscode": "^1.120.0"
   },
@@ -12,12 +18,44 @@
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "antigravity-cli-live-sidebar",
+          "title": "Antigravity CLI Live",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "antigravity-cli-live-sidebar": [
+        {
+          "id": "antigravity-cli-live.sidebarView",
+          "name": "Antigravity CLI Live",
+          "type": "webview"
+        }
+      ]
+    },
     "commands": [
       {
-        "command": "antigravity-cli-live.helloWorld",
-        "title": "Hello World"
+        "command": "antigravity-cli-live.launchCLIEditor",
+        "title": "Antigravity CLI: Open Terminal in Editor Tab"
+      },
+      {
+        "command": "antigravity-cli-live.launchCLIBottom",
+        "title": "Antigravity CLI: Open Terminal in Bottom Panel"
       }
-    ]
+    ],
+    "configuration": {
+      "title": "Antigravity CLI Live",
+      "properties": {
+        "antigravity-cli-live.cliCommand": {
+          "type": "string",
+          "default": "agy .",
+          "description": "The command or script path to run the Antigravity CLI in the current project root."
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
