@@ -13,7 +13,13 @@
 
 **Antigravity CLI Live** is a lightweight, flat-designed VS Code extension that streamlines your workflow by allowing you to launch your project's Antigravity CLI (`agy .`) instantly. It integrates deeply with your editor, allowing you to open the terminal in a traditional bottom panel or as a dedicated, full-size Editor Tab for maximum screen real estate.
 
-![Extension Screenshot](media/screenshot.png)
+![Extension Screenshot](media/screenshot-1.1.0.png)
+
+<details>
+<summary>Archived Screenshots (v1.0.0)</summary>
+
+![Extension Screenshot v1.0.0](media/screenshot.png)
+</details>
 
 ## Features
 

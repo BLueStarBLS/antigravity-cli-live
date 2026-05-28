@@ -39,6 +39,10 @@ export class CliViewProvider implements vscode.WebviewViewProvider {
                     this._executeCommand(data.command, data.target);
                     break;
                 }
+                case 'sendToTerminal': {
+                    this._sendToTerminal(data.command);
+                    break;
+                }
                 case 'requestUpdate': {
                     this.updateWebview();
                     break;
@@ -91,6 +95,17 @@ export class CliViewProvider implements vscode.WebviewViewProvider {
         
         terminal.show();
         terminal.sendText(command);
+    }
+
+    private _sendToTerminal(command: string) {
+        const terminalName = 'Antigravity CLI';
+        const terminal = vscode.window.terminals.find(t => t.name === terminalName);
+        if (terminal) {
+            terminal.show();
+            terminal.sendText(command);
+        } else {
+            vscode.window.showWarningMessage('Antigravity CLI is not running. Launch it first.');
+        }
     }
 
     private _getHtmlForWebview(webview: vscode.Webview) {
@@ -178,6 +193,30 @@ export class CliViewProvider implements vscode.WebviewViewProvider {
                 .action-btn-secondary:active {
                     background-color: rgba(0, 122, 204, 0.2);
                 }
+
+                /* Quick Commands */
+                .shortcuts-title {
+                    font-size: 11px;
+                    color: var(--vscode-descriptionForeground);
+                    margin-top: 16px;
+                    margin-bottom: 8px;
+                    text-align: left;
+                    text-transform: uppercase;
+                    letter-spacing: 0.5px;
+                    width: 100%;
+                }
+
+                .quick-cmds {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 8px;
+                    width: 100%;
+                }
+
+                .quick-cmds .action-btn {
+                    margin-bottom: 0;
+                    font-family: var(--vscode-editor-font-family, monospace);
+                }
             </style>
         </head>
         <body>
@@ -196,6 +235,16 @@ export class CliViewProvider implements vscode.WebviewViewProvider {
                 
                 <button class="action-btn" id="btnEditor">Open Terminal in Editor Tab</button>
                 <button class="action-btn action-btn-secondary" id="btnBottom">Open Terminal in Bottom Panel</button>
+            </div>
+
+            <div class="shortcuts-title">Quick Commands</div>
+            <div class="quick-cmds">
+                <button class="action-btn action-btn-secondary" data-send="/clear">/clear</button>
+                <button class="action-btn action-btn-secondary" data-send="/config">/config</button>
+                <button class="action-btn action-btn-secondary" data-send="/context">/context</button>
+                <button class="action-btn action-btn-secondary" data-send="/model">/model</button>
+                <button class="action-btn action-btn-secondary" data-send="/resume">/resume</button>
+                <button class="action-btn action-btn-secondary" data-send="/usage">/usage</button>
             </div>
 
             <script>
@@ -218,6 +267,12 @@ export class CliViewProvider implements vscode.WebviewViewProvider {
 
                 document.getElementById('btnBottom').addEventListener('click', () => {
                     vscode.postMessage({ type: 'runCommand', command: currentCommand, target: 'bottom' });
+                });
+
+                document.querySelectorAll('[data-send]').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        vscode.postMessage({ type: 'sendToTerminal', command: btn.getAttribute('data-send') });
+                    });
                 });
             </script>
         </body>
