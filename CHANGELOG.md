@@ -2,7 +2,7 @@
 
 All notable changes to the "antigravity-cli-live" extension will be documented in this file.
 
-## [1.3.0] - 2026-06-02
+## [1.4.0] - 2026-06-02
 
 ### Added
 - Editor toolbar button with Antigravity brand icon for one-click CLI launch (matching modern AI coding assistant UX patterns like Claude Code)
