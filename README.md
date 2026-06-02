@@ -11,9 +11,15 @@
 
 ## Overview
 
-**Antigravity CLI Live** is a lightweight, flat-designed VS Code extension that streamlines your workflow by allowing you to launch your project's Antigravity CLI (`agy .`) instantly. It integrates deeply with your editor, allowing you to open the terminal in a traditional bottom panel or as a dedicated, full-size Editor Tab for maximum screen real estate.
+**Antigravity CLI Live** is a lightweight, flat-designed VS Code extension that streamlines your workflow by allowing you to launch your project's Antigravity CLI (`agy .`) instantly. It integrates deeply with your editor, allowing you to open the terminal in a traditional bottom panel, as a dedicated full-size Editor Tab, or directly from the editor toolbar.
 
-![Extension Screenshot](media/screenshot-1.1.0.png)
+![Extension Screenshot](media/screenshot-1.3.0.png)
+
+<details>
+<summary>Archived Screenshots (v1.1.0)</summary>
+
+![Extension Screenshot v1.1.0](media/screenshot-1.1.0.png)
+</details>
 
 <details>
 <summary>Archived Screenshots (v1.0.0)</summary>
@@ -24,7 +30,8 @@
 ## Features
 
 - 🚀 **One-Click CLI Launch**: Start the Antigravity CLI environment instantly for the currently open project.
-- 🗂️ **Editor Tab Integration**: Open the CLI terminal directly as a main Editor Tab (similar to modern AI coding assistants) for an immersive, distraction-free experience.
+- 🔧 **Editor Toolbar Button**: Launch the CLI directly from the editor toolbar — just like Claude Code and other modern AI coding assistants.
+- 🗂️ **Editor Tab Integration**: Open the CLI terminal directly as a main Editor Tab for an immersive, distraction-free experience.
 - ⏬ **Bottom Panel Support**: Alternatively, launch the CLI in the standard VS Code integrated terminal panel.
 - ⚙️ **Configurable Command**: Customize the exact CLI command used to start the environment through extension settings.
 - 🎨 **Clean & Native UI**: A flat, non-intrusive sidebar design built to look native in VS Code.
@@ -32,11 +39,11 @@
 ## Usage
 
 1. Open a workspace or project folder in VS Code.
-2. Click the **Antigravity CLI** icon in the Activity Bar on the left.
-3. Choose your preferred launch method:
-   - **Open Terminal in Editor Tab**: Best for focused CLI interaction.
-   - **Open Terminal in Bottom Panel**: Best for side-by-side coding and CLI usage.
-4. The terminal will automatically launch using your project's root directory.
+2. Launch the CLI using any of these methods:
+   - **Editor Toolbar** (new in v1.3.0): Click the Antigravity CLI icon in the editor toolbar (top-right of any editor tab).
+   - **Activity Bar**: Click the Antigravity CLI icon in the Activity Bar on the left, then choose your preferred launch method.
+   - **Command Palette** (`Ctrl+Shift+P` / `Cmd+Shift+P`): Run `Antigravity CLI: Open Terminal in Editor Tab` or `Open Terminal in Bottom Panel`.
+3. The terminal will automatically launch using your project's root directory.
 
 ## Extension Settings
 

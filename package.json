@@ -39,7 +39,11 @@
     "commands": [
       {
         "command": "antigravity-cli-live.launchCLIEditor",
-        "title": "Antigravity CLI: Open Terminal in Editor Tab"
+        "title": "Antigravity CLI: Open Terminal in Editor Tab",
+        "icon": {
+          "light": "media/icon-toolbar-light.svg",
+          "dark": "media/icon-toolbar-dark.svg"
+        }
       },
       {
         "command": "antigravity-cli-live.launchCLIBottom",
@@ -55,6 +59,15 @@
           "description": "The command or script path to run the Antigravity CLI in the current project root."
         }
       }
+    },
+    "menus": {
+      "editor/title": [
+        {
+          "command": "antigravity-cli-live.launchCLIEditor",
+          "when": "editorIsOpen",
+          "group": "navigation"
+        }
+      ]
     }
   },
   "scripts": {

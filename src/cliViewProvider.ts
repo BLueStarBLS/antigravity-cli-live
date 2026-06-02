@@ -1,4 +1,5 @@
 import * as vscode from 'vscode';
+import { createAntigravityTerminal, TerminalTarget } from './terminal';
 
 export class CliViewProvider implements vscode.WebviewViewProvider {
     public static readonly viewType = 'antigravity-cli-live.sidebarView';
@@ -66,35 +67,8 @@ export class CliViewProvider implements vscode.WebviewViewProvider {
         });
     }
 
-    private _executeCommand(command: string, target: 'editor' | 'bottom') {
-        const folders = vscode.workspace.workspaceFolders;
-        const cwd = folders && folders.length > 0 ? folders[0].uri.fsPath : undefined;
-
-        if (!cwd) {
-            vscode.window.showErrorMessage('No active project folder found. Please open a project folder first.');
-            return;
-        }
-
-        const terminalName = 'Antigravity CLI';
-        
-        // Find existing terminal or launch a new one
-        let terminal = vscode.window.terminals.find(t => t.name === terminalName);
-        
-        // If terminal exists, we close it to launch a clean session in the selected layout location
-        if (terminal) {
-            terminal.dispose();
-        }
-
-        const location = target === 'editor' ? vscode.TerminalLocation.Editor : vscode.TerminalLocation.Panel;
-        
-        terminal = vscode.window.createTerminal({
-            name: terminalName,
-            cwd: cwd,
-            location: location
-        });
-        
-        terminal.show();
-        terminal.sendText(command);
+    private _executeCommand(_command: string, target: TerminalTarget) {
+        createAntigravityTerminal(target);
     }
 
     private _sendToTerminal(command: string) {
